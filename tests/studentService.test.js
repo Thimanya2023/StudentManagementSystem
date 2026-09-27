@@ -84,5 +84,17 @@ describe("Student Management API", () => {
             "Student deleted successfully"
         );
     });
+    test("POST /students should reject invalid age", async () => {
+        const response = await request(app)
+            .post("/students")
+            .send({
+                name: "Invalid Student",
+                age: -5,
+                course: "Computer Science",
+                email: "invalid@example.com"
+            });
+
+        expect(response.statusCode).toBe(400);
+    });
 
 });
