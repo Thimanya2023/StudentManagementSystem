@@ -39,7 +39,13 @@ app.get("/students/:id", (req, res) => {
 app.post("/students", (req, res) => {
     const { name, age, course, email } = req.body;
 
-    if (!name || !age || !course || !email) {
+    if (
+        !name ||
+        !age ||
+        !course ||
+        !email ||
+        Number(age) <= 0
+    )  {
         return res.status(400).json({
             message: "name, age, course and email are required"
         });
