@@ -27,7 +27,7 @@ describe("Student Management API", () => {
 
         expect(response.statusCode).toBe(200);
 
-        expect(response.body.name).toBe("John Silva");
+        expect(response.body.name).toBe("WRONG NAME");
     });
 
     test("GET /students/:id should return 404 for unknown student", async () => {
